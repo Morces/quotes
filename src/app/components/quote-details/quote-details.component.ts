@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 // import { EventEmitter } from 'stream';
-import { Quotes } from '../quote';
+import { Quote } from '../quote';
 
 @Component({
   selector: 'app-quote-details',
@@ -8,7 +8,7 @@ import { Quotes } from '../quote';
   styleUrls: ['./quote-details.component.css']
 })
 export class QuoteDetailsComponent implements OnInit {
-  @Input() quora: Quotes;
+  @Input() quora: Quote;
   @Output() hasRead = new EventEmitter<boolean>();
   deleteQuote(read:boolean) {
     this.hasRead.emit(read);
