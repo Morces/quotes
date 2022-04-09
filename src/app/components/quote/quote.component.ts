@@ -8,7 +8,7 @@ import { Quote } from '../quote';
 })
 export class QuoteComponent implements OnInit {
   title = 'Welcome and enjoy the quotes';
-  quotes: Quote[] = [
+  quote: Quote[] = [
     new Quote (1, "Moses", "Life", "You will face many defeats in life, but never let yourself be defeated.", "MAYA ANGELOU", new Date(2020,5,3),0,0),
     new Quote (2, "Harmony", "Technology", "Any suffiently advanced technology is indistinguishable from magic.", "ARTHUR C. CLARKE", new Date(2021,7,7),0,0),
     new Quote (3, "Victor", "Religion", "When I do good, I feel good. When I do bad, I feel bad. That's my religion","ABRAHAM LINCOLN", new Date(2019,3,9),0,0),
