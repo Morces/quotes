@@ -1,4 +1,4 @@
-<div class="overlay">
+<div class="container-fluid">
     <h1>{{ title }}</h1>
     <div class="container-fluid">
         <div class="row">
@@ -7,14 +7,14 @@
             </div>
             <div class="col-sm-9">
                 <div class="all">
-                    <div *ngFor="let quote of sortQuotes let i=index" class="card">
+                    <div *ngFor="let quote of quotes let i=index" class="card">
                         <div class="card-body">
-                            <h4 class="card-title" appHighlightQuote>{{quote.title}} {{quote.maxlikes}}<button (click)="displayInfo(i)" class="btn-btn-info btn-sm" id="qb">See More</button></h4>
+                            <h4 class="card-title" appHighlightQuote>{{quote.title}} <button (click)="displayInfo(i)" class="btn btn-info btn-sm" id="qb">See More</button></h4>
                             <p class="card-text text">{{quote.quote}}</p>
                             <div *ngIf="quote.showInfo">
                                 <app-quote-details  bind-quora="quote" (hasRead)="deleteQuote($event,i)"></app-quote-details>
                             </div>
-                            
+                              
                             <span class="card-subtitle mb-2">Posted by:<span id="name">{{quote.name}}</span><span id="date">on: <span id="datecolor">{{quote.datePosted |date:'short'}}</span></span></span>
                         </div>
                     </div>
@@ -23,3 +23,11 @@
         </div>
     </div>
 </div>
+
+
+<!-- <app-quotes-form (add)="addQuote($event)"></app-quotes-form>
+
+<h1>
+    {{quotes.}}
+</h1> -->
+

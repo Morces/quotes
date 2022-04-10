@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Quote } from '../quote'
+import { Quote } from '../quotes';
 
 @Component({
   selector: 'app-quote',
@@ -8,7 +8,7 @@ import { Quote } from '../quote'
 })
 export class QuoteComponent implements OnInit {
   title = 'Welcome and enjoy the quotes';
-  quote: Quote[] = [
+  quotes: Quote[] = [
     new Quote (1, "Moses", "Life", "You will face many defeats in life, but never let yourself be defeated.", "MAYA ANGELOU", new Date(2020,5,3),0,0),
     new Quote (2, "Harmony", "Technology", "Any suffiently advanced technology is indistinguishable from magic.", "ARTHUR C. CLARKE", new Date(2021,7,7),0,0),
     new Quote (3, "Victor", "Religion", "When I do good, I feel good. When I do bad, I feel bad. That's my religion","ABRAHAM LINCOLN", new Date(2019,3,9),0,0),
@@ -16,23 +16,23 @@ export class QuoteComponent implements OnInit {
     new Quote (5, "Reagan", "Trust", "Loving someone is giving them the power to break your heart, but trusting them not to.", "JULIANNE MOORE", new Date(2018,5,7),0,0),
     new Quote (6, "Margaret", "Peace of Mind", "Your peace of mind has to do with what you focus on. It has nothing to do with life. Empower yourself.", "ROBIN LEE", new Date(2022,2,1),0,0),
   ];
-  quotes: any;
-  get sortQuotes():any{
-    return this.sortQuotes.sort((a: { datePosted: string | number | Date; }, b: { datePosted: string | number | Date; }) => {
-      return <any>new Date (b.datePosted) - <any>new Date(a.datePosted);
-    });
-  }
+  // quotes: any;
+  // get sortQuotes():any{
+  //   return this.sortQuotes.sort((a: { datePosted: string | number | Date; }, b: { datePosted: string | number | Date; }) => {
+  //     return <any>new Date (b.datePosted) - <any>new Date(a.datePosted);
+  //   });
+  // }
   addQuote(quote:any){
-    let arraysize = this.sortQuotes.length;
+    let arraysize = this.quotes.length;
     quote.id = arraysize+1;
     quote.completeDate = new Date(quote.completedate)
-    this.sortQuotes.push(quote);
+    this.quotes.push(quote);
   }
   deleteQuote(hasRead: any, index: any) {
     if (hasRead) {
       let toDelete = confirm("Click OK to delete this Quote");
       if (toDelete) {
-        this.sortQuotes.splice(index,1);
+        this.quotes.splice(index,1);
       }
     }
   }
