@@ -1,6 +1,6 @@
 <div class="container-fluid welcome">
     <h1 class="first">{{ title }}</h1>
-    <div class="container-fluid">
+    <div class="container-fluid cards">
         <div class="row">
             <div class="col-sm-3">
                 <app-quotes-form (add)="addQuote($event)"></app-quotes-form>
@@ -9,13 +9,13 @@
                 <div class="all">
                     <div *ngFor="let quote of quotes let i=index" class="card">
                         <div class="card-body">
-                            <h4 class="card-title" appHighlightQuote>{{quote.title}} <button (click)="displayInfo(i)" class="btn btn-info btn-sm" id="qb">See More</button></h4>
+                           <div class="see"><h4 class="card-title" appHighlightQuote>{{quote.title}} <button (click)="displayInfo(i)" class="btn btn-danger btn-sm see" id="qb">See More</button></h4></div> 
                             <p class="card-text text">{{quote.quote}}</p>
                             <div *ngIf="quote.showInfo">
                                 <app-quote-details  bind-quora="quote" (hasRead)="deleteQuote($event,i)"></app-quote-details>
                             </div>
                               
-                            <span class="card-subtitle mb-2">Posted by:<span id="name">{{quote.name}}</span><span id="date">on: <span id="datecolor">{{quote.datePosted |date:'short'}}</span></span></span>
+                            <span class="card-subtitle mb-2">Posted by: <span id="name">{{quote.name}}</span><span id="date"> on: <span id="datecolor">{{quote.datePosted |date:'short'}}</span></span></span>
                         </div>
                     </div>
                 </div>
