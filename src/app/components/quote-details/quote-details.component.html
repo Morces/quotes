@@ -1,4 +1,4 @@
-<h5 class="card-footer mb-2 text-muted">{{quora.author}} <span id="time">Posted: </span></h5>
+<h5 class="card-footer mb-2 text-muted">{{quora.author}} <span id="time">Posted: {{quora.datePosted | dateCount}} days ago.</span></h5>
 <div class="container-fluid" id="buttons">
     <button class="btn btn-sm btn-success" (click)="upvote()">{{quora.likes}} <i class="fa fa thumbs-up likes"></i></button>
     <button class="btn btn-sm btn-warning hate" (click)="downvote()">{{quora.dislikes}} <i class="fa fa thumbs-down likes"></i></button>

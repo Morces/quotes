@@ -2,12 +2,17 @@
     <h1>{{ title | titlecase | uppercase }}</h1>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-3"></div>
+            <div class="col-sm-3">
+                <app-quotes-form (add)="addQuote($event)"></app-quotes-form>
+            </div>
             <div class="col-sm-9">
                 <div class="all">
-                    <div class="card">
+                    <div *ngFor="let quote of sortQuotes let i=index" class="card">
                         <div class="card-body">
-                            
+                            <h4 class="card-title" appHighlightQuote>{{quote.title}} {{quote.maxlikes}}<button (click)="displayInfo(i)" class="btn-btn-info btn-sm" id="qb">See More</button></h4>
+                            <p class="card-text text">{{quote.quote}}</p>
+                            <app-quote-details *ngIf="quote.showInfo" bind-quora="quote" (hasRead)="deleteQuote($event,i)"></app-quote-details>
+                            <span class="card-subtitle mb-2">Posted by:<span id="name">{{quote.name}}</span><span id="date">on: <span id="datecolor">{{quote.datePosted |date:'short'}}</span></span></span>
                         </div>
                     </div>
                 </div>
