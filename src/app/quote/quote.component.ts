@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Quote } from '../quote';
+import { Quote } from '../quote'
 
 @Component({
   selector: 'app-quote',
@@ -28,7 +28,7 @@ export class QuoteComponent implements OnInit {
     quote.completeDate = new Date(quote.completedate)
     this.sortQuotes.push(quote);
   }
-  deleteQuote(hasRead: boolean, index: any) {
+  deleteQuote(hasRead: any, index: any) {
     if (hasRead) {
       let toDelete = confirm("Click OK to delete this Quote");
       if (toDelete) {
